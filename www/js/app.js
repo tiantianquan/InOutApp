@@ -75,7 +75,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'AccountCtrl'
         }
       }
-    });
+    })
+
+    //搜索页
+    .state('search',{
+      url:'/search',
+      templateUrl: 'templates/search.html',
+      controller:'SearchCtrl'
+    })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
