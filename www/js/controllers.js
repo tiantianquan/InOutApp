@@ -1,6 +1,14 @@
 angular.module('starter.controllers', [])
 
-.controller('HomeCtrl', function ($scope) {
+.controller('HomeCtrl', function ($scope,$location) {
+  $scope.$root.searchShow = true;
+  $scope.$on('$destroy',function(){
+    $scope.$root.searchShow = false;
+  })
+
+  $scope.click = function(){
+    $location.path('tab/home/product/2')
+  }
 })
 
 .controller('SellCtrl', function ($scope, Friends) {
@@ -8,14 +16,14 @@ angular.module('starter.controllers', [])
 })
 
 .controller('FriendDetailCtrl', function ($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
 })
 
 .controller('AccountCtrl', function ($scope) {
 })
 
-.controller('SearchCtrl', function ($scope,$ionicNavBarDelegate) {
-  $scope.goBack = function () {
-    $ionicNavBarDelegate.back();
-  };
+.controller('SearchCtrl', function ($scope) {
+})
+
+.controller('ProductItemCtrl',function($scope,$stateParams, ProductItems){
+  $scope.productItem = ProductItems.get($stateParams.productItemId);
 });
