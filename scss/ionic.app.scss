@@ -22,7 +22,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "../www/lib/ionic/scss/ionic";
 
 
-
 .search-button{
   position: absolute;
   right:0;
@@ -34,11 +33,17 @@ a{
 }
 
 .camera{
+  font-size: 90px;
   display: block;
   text-align: center;
+  background-color: lighten(#000,95%);
   &:before{
-    line-height:100px;
+    line-height:200px;
     display: block;
     box-sizing:border-box;
   }
+}
+
+ion-content{
+  background-color: lighten(#000,93%);
 }

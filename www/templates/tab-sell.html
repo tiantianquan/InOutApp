@@ -1,22 +1,24 @@
 <ion-modal-view>
-  <ion-header-bar class="bar bar-header bar-stable">
+  <ion-header-bar class="bar bar-header bar-dark">
     <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
-    <h1 class="title">Publish Sell Item</h1>
-    
+    <h1 class="title">Publish</h1>
   </ion-header-bar>
   <ion-content class="padding">
     <div class="row list">
       <div class="col item">
-       <span class="ion-ios7-camera-outline icon camera"></span>
+       <span class="ion-ios7-camera-outline icon camera" ng-click="getPhoto()"></span>
       </div>
     </div>
-    <div class="list">
-      <label class="item item-input">
+    <div class="row list">
+      <label class="col item item-input">
         <input type="text" placeholder="Title">
       </label>
-      <label class="item item-input">
+    </div>
+    <div class="row list">
+      <label class="col item item-input">
         <input type="text" placeholder="Price">
       </label>
     </div>
+    <img ng-src="{{lastPhoto}}" style="max-width: 100%">
   </ion-content>
 </ion-modal-view>

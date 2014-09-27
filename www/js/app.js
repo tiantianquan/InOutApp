@@ -33,7 +33,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/tab',
     abstract: true,
     templateUrl: "templates/tabs.html",
-    controller:"TabCtrl"
+    controller: "TabCtrl"
   })
 
   // Each tab has its own nav history stack:
@@ -47,12 +47,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.product-item',{
-    url:'/home/product/:productItemId',
-    views:{
-      'tab-home':{
-        templateUrl:'templates/product-item.html',
-        controller:'ProductItemCtrl'
+  .state('tab.product-item', {
+    url: '/home/product/:productItemId',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/product-item.html',
+        controller: 'ProductItemCtrl'
       }
     }
   })
@@ -84,14 +84,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 })
 
-.directive('hideTabs', function($rootScope) {
-    return {
-        restrict: 'A',
-        link: function($scope, $el) {
-            $rootScope.hideTabs = true;
-            $scope.$on('$destroy', function() {
-                $rootScope.hideTabs = false;
-            });
-        }
-    };
-});
+.config(function($compileProvider) {
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+})
