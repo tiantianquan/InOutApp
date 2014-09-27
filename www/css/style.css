@@ -8875,4 +8875,15 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
   right: 0;
   z-index: 30; }
 
+a {
+  text-decoration: none; }
+
+.camera {
+  display: block;
+  text-align: center; }
+  .camera:before {
+    line-height: 100px;
+    display: block;
+    box-sizing: border-box; }
+
 /*# sourceMappingURL=style.css.map */

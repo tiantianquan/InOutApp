@@ -58,33 +58,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
 
-  //搜索页(sug:放在tab前面才能识别
   .state('tab.search', {
     url: '/home/search',
     views: {
       'tab-home': {
         templateUrl: 'templates/search.html',
         controller: 'SearchCtrl'
-      }
-    }
-  })
-
-  .state('tab.friend-detail', {
-    url: '/friend/:friendId',
-    views: {
-      'tab-friends': {
-        templateUrl: 'templates/friend-detail.html',
-        controller: 'FriendDetailCtrl'
-      }
-    }
-  })
-
-  .state('tab.sell', {
-    url: '/sell',
-    views: {
-      'tab-sell': {
-        templateUrl: 'templates/tab-sell.html',
-        controller: 'SellCtrl'
       }
     }
   })

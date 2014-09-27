@@ -28,3 +28,17 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   right:0;
   z-index:30;
 }
+
+a{
+  text-decoration:none;
+}
+
+.camera{
+  display: block;
+  text-align: center;
+  &:before{
+    line-height:100px;
+    display: block;
+    box-sizing:border-box;
+  }
+}

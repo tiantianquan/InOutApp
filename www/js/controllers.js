@@ -4,8 +4,7 @@ angular.module('starter.controllers', [])
   $scope.$root.searchShow = true;
   $scope.$on('$destroy', function() {
     $scope.$root.searchShow = false;
-  })
-
+  });
 
 })
 
@@ -13,18 +12,17 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {})
-
 .controller('AccountCtrl', function($scope) {})
 
 .controller('SearchCtrl', function($scope) {})
 
-.controller('ProductItemCtrl', function($scope, $stateParams, ProductItems) {
+.controller('ProductItemCtrl', function($scope, $stateParams,ProductItems) {
   $scope.productItem = ProductItems.get($stateParams.productItemId);
 })
 
 .controller('TabCtrl', function($scope, $ionicModal) {
 
+  //从下方弹出页面
   $ionicModal.fromTemplateUrl('templates/tab-sell.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -49,4 +47,5 @@ angular.module('starter.controllers', [])
   $scope.$on('modal.removed', function() {
     // Execute action
   });
+
 });
