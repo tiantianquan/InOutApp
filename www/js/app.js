@@ -87,3 +87,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 .config(function($compileProvider) {
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
+
+//允许跨站
+.config(['$httpProvider',
+  function($httpProvider) {
+    // ...
+
+    // delete header from client:
+    // http://stackoverflow.com/questions/17289195/angularjs-post-data-to-external-rest-api
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  }
+]);

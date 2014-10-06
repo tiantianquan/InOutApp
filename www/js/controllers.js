@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('HomeCtrl', function($scope, $location, $timeout,$ionicModal) {
+.controller('HomeCtrl', function($scope, $location, $timeout,$ionicModal,Pokeman) {
   $scope.$root.searchShow = true;
   $scope.$root.$broadcast('showTabs');
 
@@ -15,6 +15,12 @@ angular.module('starter.controllers', [])
     $scope.$root.$broadcast('hideTabs');
   });
 
+  Pokeman.all(function(data,status){
+    $scope.pokemans = data;
+    $scope.pokemans.forEach(function(pokeman){
+        pokeman.img = 'img/mainImg/'+pokeman.No.split('#')[1]+pokeman.EName+'.png';
+    })
+  })
 })
 
 .controller('SellCtrl', function($scope, Friends) {
