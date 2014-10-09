@@ -1,20 +1,14 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
 angular.module('InOutApp', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if (window.StatusBar) {
+  if (window.cordova && window.cordova.plugins.Keyboard) {
+    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+  }
+  if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
@@ -78,9 +72,20 @@ angular.module('InOutApp', ['ionic'])
     }
   })
 
+  //注册与登陆
+  .state('signin', {
+    url: '/sign-in',
+    templateUrl: 'js/sign/signin.template.html',
+    controller: 'SignInCtrl'
+  })
+  // .state('forgotpassword', {
+  //   url: '/forgot-password',
+  //   templateUrl: 'templates/forgot-password.html'
+  // })
+
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/sign-in');
 
 })
 
@@ -100,3 +105,29 @@ angular.module('InOutApp', ['ionic'])
 //     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 //   }
 // ]);
+
+//配置avos key id
+.config(function(){
+  AV.initialize(AVOS_ID,AVOS_KEY);
+
+// AV.User.logIn("my name", "my pass", {
+//   success: function(user) {
+//     console.log(user);
+//   },
+//   error: function(user, error) {
+//     // The login failed. Check error to see why.
+//   }
+// });
+var currentUser = AV.User.current();
+if (currentUser) {
+  console.log(currentUser);
+} else {
+  console.log('error');
+}
+
+})
+
+
+//常量
+AVOS_ID = "5ikmya9zrrfimdl456y3yox57e4l7fgfxactyy57c3qo5w0h";
+AVOS_KEY = "x0uwyco97txu3b3x52kfzjkknfkil9ap9kb6ouwo3r9k9ay5";

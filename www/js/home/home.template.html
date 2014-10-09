@@ -8,7 +8,7 @@
     <ion-content>
         <ion-refresher on-refresh="doRefresh()">
         </ion-refresher>
-        <!-- <a href="#/tab/home/product/2">
+        <a href="#/tab/home/product/2">
           <div class="list card product-item">
 
             <div class="item item-avatar">
@@ -45,51 +45,8 @@
               </a>
             </div>
           </div>
-        </a> -->
+        </a>
 
-        <div ng-repeat="pokeman in pokemans">
-            <a href="#/tab/home/product/2">
-                <div class="list card product-item">
-
-                    <div class="item item-avatar">
-                        <img src="http://tp4.sinaimg.cn/1641766563/180/1287754937/0">
-
-                        <h2>{{pokeman.Name}}</h2>
-
-                        <p>November 05, 2014</p>
-                    </div>
-
-                    <div class="item item-body">
-                        <img class="full-image"
-                             src="{{pokeman.img}}">
-
-                        <p>
-                            {{pokeman.OtherIntroduce}}
-                        </p>
-
-                        <p>
-                            <a href="#" class="subdued">1 Like</a>
-                            <a href="#" class="subdued">5 Comments</a>
-                        </p>
-                    </div>
-
-                    <div class="item tabs tabs-secondary tabs-icon-left">
-                        <a class="tab-item" href="#">
-                            <i class="icon ion-thumbsup"></i>
-                            Like
-                        </a>
-                        <a class="tab-item" href="#">
-                            <i class="icon ion-chatbox"></i>
-                            Comment
-                        </a>
-                        <a class="tab-item" href="#">
-                            <i class="icon ion-share"></i>
-                            Share
-                        </a>
-                    </div>
-                </div>
-            </a>
-        </div>
 
     </ion-content>
 </ion-view>
