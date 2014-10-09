@@ -1,14 +1,13 @@
-
 angular.module('InOutApp', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-  if (window.cordova && window.cordova.plugins.Keyboard) {
-    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-  }
-  if (window.StatusBar) {
+    if (window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    }
+    if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
@@ -107,23 +106,47 @@ angular.module('InOutApp', ['ionic'])
 // ]);
 
 //配置avos key id
-.config(function(){
-  AV.initialize(AVOS_ID,AVOS_KEY);
+.config(function() {
+  AV.initialize(AVOS_ID, AVOS_KEY);
 
-// AV.User.logIn("my name", "my pass", {
-//   success: function(user) {
-//     console.log(user);
-//   },
-//   error: function(user, error) {
-//     // The login failed. Check error to see why.
-//   }
-// });
-var currentUser = AV.User.current();
-if (currentUser) {
-  console.log(currentUser);
-} else {
-  console.log('error');
-}
+  AV.User.logIn("my name", "my pass", {
+    success: function(user) {
+
+      var GameScore = AV.Object.extend("GameScore");
+      var query = new AV.Query(GameScore);
+      query.get("543691e8e4b06664ddb43996", {
+        success: function(gameScore) {
+        },
+        error: function(object, error) {
+          console.log(error)
+        }
+      });
+    },
+    error: function(user, error) {
+      // The login failed. Check error to see why.
+    }
+  });
+
+  // var GameScore = AV.Object.extend("GameScore");
+
+  // // 创建该类的一个实例
+  // var gameScore = new GameScore();
+
+  // gameScore.set('aaa','123');
+  // gameScore.setACL(new AV.ACL(AV.User.current()));
+  // gameScore.save();
+
+
+  var currentUser = AV.User.current();
+  if (currentUser) {
+    console.log(currentUser);
+  } else {
+    console.log('error');
+  }
+
+  
+
+
 
 })
 
