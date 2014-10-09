@@ -1,4 +1,4 @@
-angular.module('starter')
+angular.module('InOutApp')
 
 .directive('hideTabs', function() {
   return {

@@ -11,7 +11,14 @@ var paths = {
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['scripts','sass']);
+
+
+gulp.task('scripts', function() {
+  gulp.src('./www/js/*/.js')
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest('./www/dist/'))
+});
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')

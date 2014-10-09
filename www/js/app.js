@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('InOutApp', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -32,7 +32,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: "templates/tabs.html",
+    templateUrl: "js/tabs/tabs.template.html",
     controller: "TabCtrl"
   })
 
@@ -41,7 +41,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/home',
     views: {
       'tab-home': {
-        templateUrl: 'templates/tab-home.html',
+        templateUrl: 'js/home/home.template.html',
         controller: 'HomeCtrl'
       }
     }
@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/home/product/:productItemId',
     views: {
       'tab-home': {
-        templateUrl: 'templates/product-item.html',
+        templateUrl: 'js/product/product.template.html',
         controller: 'ProductItemCtrl'
       }
     }
@@ -62,7 +62,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/home/search',
     views: {
       'tab-home': {
-        templateUrl: 'templates/search.html',
+        templateUrl: 'js/home/search/search.template.html',
         controller: 'SearchCtrl'
       }
     }
@@ -72,7 +72,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/account',
     views: {
       'tab-account': {
-        templateUrl: 'templates/tab-account.html',
+        templateUrl: 'js/account/account.template.html',
         controller: 'AccountCtrl'
       }
     }
@@ -84,18 +84,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 })
 
+//照相相关
 .config(function($compileProvider) {
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
 
 //允许跨站
-.config(['$httpProvider',
-  function($httpProvider) {
-    // ...
+// .config(['$httpProvider',
+//   function($httpProvider) {
+//     // ...
 
-    // delete header from client:
-    // http://stackoverflow.com/questions/17289195/angularjs-post-data-to-external-rest-api
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  }
-]);
+//     // delete header from client:
+//     // http://stackoverflow.com/questions/17289195/angularjs-post-data-to-external-rest-api
+//     $httpProvider.defaults.useXDomain = true;
+//     delete $httpProvider.defaults.headers.common['X-Requested-With'];
+//   }
+// ]);

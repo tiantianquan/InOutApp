@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('InOutApp')
 
 .factory('ProductItems', function() {
   var productItems = [{
@@ -41,13 +41,13 @@ angular.module('starter.services', [])
 ])
 
 
-.factory('Pokeman', function($http) {
+// .factory('Pokeman', function($http) {
 
-  return {
-    all: function(callback) {
-      return $http.get('http://192.168.2.70:5000/list').success(function(data,status){
-        callback(data,status)
-      });
-    }
-  }
-})
+//   return {
+//     all: function(callback) {
+//       return $http.get('http://192.168.2.70:5000/list').success(function(data,status){
+//         callback(data,status)
+//       });
+//     }
+//   }
+// })
