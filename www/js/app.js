@@ -109,42 +109,59 @@ angular.module('InOutApp', ['ionic'])
 .config(function() {
   AV.initialize(AVOS_ID, AVOS_KEY);
 
-  AV.User.logIn("my name", "my pass", {
-    success: function(user) {
+  // AV.User.logIn("my name", "my pass", {
+  //   success: function(user) {
 
-      var GameScore = AV.Object.extend("GameScore");
-      var query = new AV.Query(GameScore);
-      query.get("543691e8e4b06664ddb43996", {
-        success: function(gameScore) {
-        },
-        error: function(object, error) {
-          console.log(error)
-        }
-      });
-    },
-    error: function(user, error) {
-      // The login failed. Check error to see why.
-    }
-  });
+  //     var GameScore = AV.Object.extend("GameScore");
+  //     var query = new AV.Query(GameScore);
+  //     query.get("543691e8e4b06664ddb43996", {
+  //       success: function(gameScore) {
+  //       },
+  //       error: function(object, error) {
+  //         console.log(error)
+  //       }
+  //     });
+  //   },
+  //   error: function(user, error) {
+  //     // The login failed. Check error to see why.
+  //   }
+  // });
 
-  // var GameScore = AV.Object.extend("GameScore");
+  // // var GameScore = AV.Object.extend("GameScore");
 
-  // // 创建该类的一个实例
-  // var gameScore = new GameScore();
+  // // // 创建该类的一个实例
+  // // var gameScore = new GameScore();
 
-  // gameScore.set('aaa','123');
-  // gameScore.setACL(new AV.ACL(AV.User.current()));
-  // gameScore.save();
+  // // gameScore.set('aaa','123');
+  // // gameScore.setACL(new AV.ACL(AV.User.current()));
+  // // gameScore.save();
 
 
-  var currentUser = AV.User.current();
-  if (currentUser) {
-    console.log(currentUser);
-  } else {
-    console.log('error');
-  }
+  // var currentUser = AV.User.current();
+  // if (currentUser) {
+  //   console.log(currentUser);
+  // } else {
+  //   console.log('error');
+  // }
 
-  
+  // Declare the types.
+var Post = AV.Object.extend("Post");
+var Comment = AV.Object.extend("Comment");
+
+// Create the post
+var myPost = new Post();
+myPost.set("title", "I'm Hungry");
+myPost.set("content", "Where should we go for lunch?");
+
+// Create the comment
+var myComment = new Comment();
+myComment.set("content", "Let's do Sushirrito.");
+
+// Add the post as a value in the comment
+myComment.set("parent", myPost);
+
+// This will save both myPost and myComment
+myComment.save();
 
 
 
